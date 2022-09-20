@@ -1,5 +1,8 @@
 # Bayesian IRL Homework
 
+## Dependencies
+You will need python (version 3.8 or higher), numpy, and matplotlib.
+
 You will need to code two pieces of Bayesian IRL. We will be implementing a simple version of Bayesian IRL that uses Value Iteration given a reward hypothesis to calculate the Values and Q-values. This is important since Bayesian IRL's likelihood function is based on Q-values.
 
 ## Part 1: Code up Value Iteration
