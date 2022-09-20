@@ -10,9 +10,8 @@ values = value_iteration(env, epsilon=eps)
 print(values)
 
 solution = np.array([34.21558,  36.22837, 37.32727, 38.73392])
-
-print(max(values - solution))
-correct = max(values - solution) <= eps
+error = max(np.abs(values - solution))
+correct = error <= eps
 
 if correct:
     print("#"*20)
@@ -21,5 +20,9 @@ if correct:
 else:
     print("#"*20)
     print("Incorrect. Please try again")
+    print("Your value iteration returned")
+    print(values)
+    print("but should have returned")
+    print(solution)
     print("#"*20)
 

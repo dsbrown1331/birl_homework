@@ -44,6 +44,9 @@ class BIRL:
             # You will want to use the logsumexp function. It has already been imported for you.
             # You can see the implementation in mdp_utils.
             # Remember that everything is in Log Space!
+            # you will need to use the q_values calculated above. 
+            # Note that q_values[s][a] will give you the Q-value of taking action a in state s
+            # and q_values[s] will give you a vector of the Q-values for state s, one Q-value per action.
             ###################   
             pass
         return log_sum

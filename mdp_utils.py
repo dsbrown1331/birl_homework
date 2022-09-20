@@ -12,13 +12,21 @@ def value_iteration(env, epsilon=0.0001):
   :param epsilon: numerical precision for value function
   :return: vector representation of the value function for each state
   """
-    n = env.num_states
-    V = np.zeros(n)  #vector to store Value function
+    num_s = env.num_states
+    num_a = env.num_actions
+    V = np.zeros(num_s)  #vector to store Value function
 
 
     ############################
     ##TODO implement Value Iteration such that it terminates when within epsilon of the true Value function
-    ## See Russell and Norvig Chapter on MDPs. Included in Supplemental materials on class website
+    ## Implement Value Iteration basd on the Russell and Norvig Chapter on MDPs (page 653 in the 3rd Edition). 
+    ## This chapter is included in Supplemental materials for day 1 on the class website.
+    ## Note the following: 
+    ## env.transitions[s][a] will give you a vector of transition probabilities, one for each possible next state.
+    ## env.transitions[s][a][s2] would give you the probability of ending up in state s2 after taking action a in state s.
+    ## env.rewards will give you a vector of rewards for all states and env.rewards[s] will give you the reward at a particular state s.
+    ## States are indexed 0 to env.num_states-1 and are numbered left to right, top to bottom.
+    ## Finally, env.gamma gives you the discount factor.
     ############################
     
     return V
