@@ -30,6 +30,10 @@ For this part you will be using the jupyter notebook ```BayesianIRL.ipynb```. Yo
 ```
 jupyter notebook BayesianIRL.ipynb
 ```
+If you don't have jupyter notebook installed, you can get it using conda
+```
+conda install -c anaconda jupyter
+```
 Follow the instructions and prepare a pdf report with your answers to the questions and submit the pdf along with your code in a zip file.
 
 
