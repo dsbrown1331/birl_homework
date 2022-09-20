@@ -8,9 +8,11 @@ Open ```mdp_utils.py``` and fill in the missing code for Value Iteration.
 To test your code. run 
 ```test_value_iteration.py```
 
+Look at ```calculate_q_values``` in ```mdp_utils.py```, to see an example of how to go from a value function to a q-value function. This part is already coded for you.
+
 ## Part 2: Code up the loglikelihood function for Bayesian IRL
 
-Open ```bayesian_irl.py``` and fill in the missing code for ```def calc_ll()```
+Open ```bayesian_irl.py``` and use fill in the missing code for ```def calc_ll()``` using q-values.
 To test your code, run
 ```test_bayesian_irl_ll.py```
 
