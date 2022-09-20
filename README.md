@@ -26,7 +26,7 @@ To test your code, run
 
 
 ## Part 3: Run Bayesian IRL on some demos in a grid world and explore what happens.
-If you don't have jupyter notebook installed, you can get it using conda. First activate your conda env ```conda activate imitation_learning``` if you're using the env from that last assignment. Then run:
+If you don't have jupyter notebook installed, you can get it using conda. First activate your conda env ```conda activate imitation_learning``` (assuming  you're using the env from that last assignment). Then run:
 ```
 conda install -c anaconda jupyter
 ```
