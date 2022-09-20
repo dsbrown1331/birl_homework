@@ -28,6 +28,10 @@ class BIRL:
     
 
     def calc_ll(self, hyp_reward):
+        '''
+            calculate the log-likelihood of the demonstrations given a reward hypothesis hyp_reward
+            you can access the demos in self.demonstrations
+        '''
         #perform hypothetical given current reward hypothesis
         self.env.set_rewards(hyp_reward)
         q_values = calculate_q_values(self.env, epsilon=self.epsilon)
@@ -35,21 +39,23 @@ class BIRL:
         log_prior = 0.0  #assume unimformative prior
         log_sum = log_prior
         for s, a in self.demonstrations:
-            if (s not in self.env.terminals):  # there are no counterfactuals in a terminal state
-
-                Z_exponents = self.beta * q_values[s]
-                log_sum += self.beta * q_values[s][a] - logsumexp(Z_exponents)
-               
+            ###################
+            # TODO: remove the pass and implement the rest of this
+            # You will want to use the logsumexp function. It has already been imported for you.
+            # You can see the implementation in mdp_utils.
+            # Remember that everything is in Log Space!
+            ###################   
+            pass
         return log_sum
-
+        
 
     def generate_proposal(self, old_sol, stdev, normalize):
         """
-        Symetric Gaussian proposal
+        Symetric Gaussian proposal projected to L2-ball
         """
         proposal_r = old_sol + stdev * np.random.randn(len(old_sol)) 
         if normalize:
-            proposal_r /= np.linalg.norm(proposal_r)
+            proposal_r /= np.linalg.norm(proposal_r)  #normalize to have unit L2 norm
         return proposal_r
 
 
@@ -107,53 +113,13 @@ class BIRL:
                     # reject
                     self.chain[i,:] = cur_sol
 
-        # print("accept rate:", accept_cnt / num_samples)
+        print("accept rate:", accept_cnt / num_samples)
         self.accept_rate = accept_cnt / num_samples
         self.map_sol = map_sol
-        # print("MAP Loglikelihood", map_ll)
-        # print("MAP reward")
-        # print_array_as_grid(map_sol, mdp)
-
-    def generate_samples_with_mcmc(self, samples, stepsize, normalize=True):
-        num_samples = samples
-        self.chain = np.zeros((num_samples, self.num_mcmc_dims))
-        curr_sol = self.initial_solution()
-        curr_ll = self.calc_ll(curr_sol)
-        map_ll, map_sol = curr_ll, curr_sol
-        generated_samples = []
-        for i in range(num_samples):
-            prop_sol = self.generate_proposal(curr_sol, stepsize, normalize)
-            prop_ll = self.calc_ll(prop_sol)
-            if prop_ll > curr_ll:
-                self.chain[i, :] = prop_sol
-                curr_sol = prop_sol
-                curr_ll = prop_ll
-                if prop_ll > map_ll:
-                    map_ll = prop_ll
-                    map_sol = prop_sol
-            else:
-                if np.random.rand() < np.exp(prop_ll - curr_ll):
-                    self.chain[i, :] = prop_sol
-                    curr_sol = prop_sol
-                    curr_ll = prop_ll
-                else:
-                    self.chain[i, :] = curr_sol
-            generated_samples.append(curr_sol)
-        self.map_sol = map_sol
-        return generated_samples
+        
         
 
     def get_map_solution(self):
         return self.map_sol
 
 
-    def get_mean_solution(self, burn_frac=0.1, skip_rate=1):
-        ''' get mean solution after removeing burn_frac fraction of the initial samples and only return every skip_rate
-            sample. Skiping reduces the size of the posterior and can reduce autocorrelation. Burning the first X% samples is
-            often good since the starting solution for mcmc may not be good and it can take a while to reach a good mixing point
-        '''
-
-        burn_indx = int(len(self.chain) * burn_frac)
-        mean_r = np.mean(self.chain[burn_indx::skip_rate], axis=0)
-        
-        return mean_r

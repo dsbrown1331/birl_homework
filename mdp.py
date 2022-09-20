@@ -2,7 +2,6 @@
 import math
 import copy
 import numpy as np
-import mdp_utils
 
 
 class MDP:
@@ -246,4 +245,4 @@ if __name__ =="__main__":
     eps = 0.0001
     env = FeatureMDP(2,2,[0],feature_weights, state_features, gamma, noise)
     
-    mdp_utils.value_iteration(env)
+   
