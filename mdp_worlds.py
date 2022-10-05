@@ -36,12 +36,24 @@ def gen_test_world():
 
     gamma = 0.9  #discount factor
 
-    terminals = [] #set state 0 to be a terminal (absorbing) state, in this implementation, that means there are no outgoing transitions
+    terminals = [] #set no state to be terminal
     
     env = MDP(2, 2, terminals, rewards, gamma)
     
     return env
 
+def gen_test_world2():
+    #four features, blue (true reward of +1), white (true reward of 0), red (true reward of -1), 
+    
+    rewards = [1,-2,-3,-4]
+
+    gamma = 0.95  #discount factor
+
+    terminals = [0] #set state 0 to be a terminal (absorbing) state, in this implementation, that means there are no outgoing transitions
+    
+    env = MDP(2, 2, terminals, rewards, gamma)
+    
+    return env
 
 
 
