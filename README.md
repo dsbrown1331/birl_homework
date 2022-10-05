@@ -26,15 +26,19 @@ To test your code, run
 
 
 ## Part 3: Run Bayesian IRL on some demos in a grid world and explore what happens.
+If you don't have jupyter notebook installed, you can get it using conda. First activate your conda env ```conda activate imitation_learning``` (assuming  you're using the env from that last assignment). Then run:
+```
+conda install -c anaconda jupyter
+```
+
 For this part you will be using the jupyter notebook ```BayesianIRL.ipynb```. You should be able to run this using the command
 ```
 jupyter notebook BayesianIRL.ipynb
 ```
-If you don't have jupyter notebook installed, you can get it using conda
-```
-conda install -c anaconda jupyter
-```
-Follow the instructions and prepare a pdf report with your answers to the questions and submit the pdf along with your code in a zip file.
+
+## Submission.
+
+Follow the instructions in the jupyter notebook and prepare a pdf report with your answers to the questions and submit the pdf along with your code in a zip file. Submit via Canvas.
 
 
 
