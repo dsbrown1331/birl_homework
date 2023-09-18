@@ -38,7 +38,7 @@ jupyter notebook BayesianIRL.ipynb
 
 ## Submission.
 
-Follow the instructions in the jupyter notebook and prepare a pdf report with your answers to the questions and submit the pdf along with your code in a zip file. Submit via Canvas.
+Follow the instructions in the jupyter notebook and prepare a pdf report with your answers to the questions and submit the pdf along with your code in a zip file. Feel free to input your answers in the provided notebook using Markdown and save a pdf of that. Submit via Canvas.
 
 
 
