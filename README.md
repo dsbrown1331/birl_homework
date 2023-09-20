@@ -1,6 +1,6 @@
 # Bayesian IRL Homework
 
-## Submission
+## Logistics
 You should work in teams of 2-4 students. Only one team member should submit the homework via Canvas with all team member's names listed on the submission. 
 
 ## Dependencies
