@@ -1,5 +1,8 @@
 # Bayesian IRL Homework
 
+## Submission
+You should work in teams of 2-4 students. Only one team member should submit the homework via Canvas with all team member's names listed on the submission. 
+
 ## Dependencies
 You will need python (version 3.8 or higher), numpy, and matplotlib. You will not need PyTorch for this assignment.
 You should be able to reuse the conda environmnent from Homework 1.
