@@ -12,6 +12,9 @@ You should be able to reuse the conda environmnent from Homework 1.
 You will need to code two pieces of of a basic implementation of Bayesian IRL. The version of Bayesian IRL provided for you uses Value Iteration given a reward hypothesis to calculate the Values and Q-values. These Q-values are then used for Bayesian IRL's likelihood function. You will gain experience implementing Value Iteration as well as implementing a loglikelihood function for Bayesian IRL.
 
 ## Part 1: Code up Value Iteration
+
+A description of value iteration and pseudo-code can be found here: https://users.cs.utah.edu/~dsbrown/readings/aima_mdp_chapter.pdf
+
 Open ```mdp_utils.py``` and fill in the missing code for Value Iteration.
 
 To test your code. run 
